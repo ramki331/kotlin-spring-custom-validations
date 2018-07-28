@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.kroger.checkout.person.ValidEmail
 import com.kroger.checkout.person.validator.ValidAddress
+import org.springframework.validation.annotation.Validated
 import javax.validation.Valid
 import javax.validation.constraints.NotNull
 import javax.validation.groups.Default
@@ -21,9 +22,9 @@ data class CreatePerson (
 data class Person (
     @field:NotNull
     val username: String,
-    @field:ValidEmail(groups = [Default::class])
+    @field:ValidEmail
     val email: String?,
-    @field:ValidAddress(groups = [Default::class])
+    @field:ValidAddress
     val address: List<Address>?
 )
 
